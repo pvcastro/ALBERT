@@ -22,6 +22,12 @@ for FILE in $( find ${TEXTDIR} -name "wiki_*" ); do
 done
 
 # Concat all text files in each text directory.
+for DIR in $( find ${TEXTDIR} -mindepth 1 -type d ); do
+    echo "Processing ${DIR}"
+    for f in $( find ${DIR} -name "wiki_*" ); do cat $f >> ${DIR}/all.txt; done
+done
+
+# Remove all.txt concatenated text files in each text directory.
 #for DIR in $( find ${TEXTDIR} -mindepth 1 -type d )
 #do
 #    echo "Removing all.txt files from ${DIR}"
