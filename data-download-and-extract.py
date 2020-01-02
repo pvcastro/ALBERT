@@ -33,13 +33,15 @@ def reporthook(blocknum, blocksize, totalsize):
 
 
 def download():
-    urlretrieve(FILEURL, FILEPATH, reporthook)
+    if not os.path.exists(FILEPATH):
+        urlretrieve(FILEURL, FILEPATH, reporthook)
+    else:
+        print('%s already downloaded from %s.' % (FILEPATH, FILEURL))
 
 
 def extract():
     subprocess.call(['python3', 
-                    os.path.join(CURDIR, os.pardir,
-                                 'wikiextractor', 'WikiExtractor.py'), 
+                    os.path.join(CURDIR, 'wikiextractor', 'WikiExtractor.py'),
                     FILEPATH, "-o={}".format(EXTRACTDIR)])
 
 
