@@ -30,8 +30,8 @@ def train(prefix=PREFIX, vocab_size=VOCABSIZE, ctl_symbols=CTLSYMBOLS):
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --pad_id=0 --unk_id=1 --pad_piece=<pad> --unk_piece=<unk> --bos_id=-1 --eos_id=-1 --control_symbols=[CLS],[SEP],[MASK],<pad>'
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --pad_id=0 --unk_id=1 --pad_piece=<pad> --unk_piece=<unk> --bos_id=-1 --eos_id=-1 --control_symbols=[CLS],[SEP],[MASK],<pad>'
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --bos_id=-1 --eos_id=-1 --control_symbols={ctl_symbols}'
-    # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --control_symbols={ctl_symbols}'
-    command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --control_symbols={ctl_symbols}'
+    command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --control_symbols={ctl_symbols}'
+    # command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --control_symbols={ctl_symbols}'
     sp.SentencePieceTrainer.Train(command)
 
 
