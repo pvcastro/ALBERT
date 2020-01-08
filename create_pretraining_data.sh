@@ -8,7 +8,7 @@ source <(sed -n '/^\[SENTENCEPIECE\]/,/^\[/p' ${CURDIR}/config.ini | grep PREFIX
 echo ${PREFIX}
 
 for DIR in $( find ${TEXTDIR} -mindepth 1 -type d ); do
-  python3 -m albert.create_pretraining_data \
+  python3 -m create_pretraining_data \
     --input_file=${DIR}/all.txt \
     --output_file=${DIR}/all-maxseq512.tfrecord \
     --spm_model_file=${PREFIX}.model \
@@ -18,6 +18,6 @@ for DIR in $( find ${TEXTDIR} -mindepth 1 -type d ); do
     --max_predictions_per_seq=20 \
     --masked_lm_prob=0.15 \
     --random_seed=12345 \
-    --dupe_factor=5 \
+    --dupe_factor=10 \
     --do_whole_word_mask=True
 done

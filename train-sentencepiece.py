@@ -26,11 +26,11 @@ def _get_text_file(text_dir=TEXTDIR):
 def train(prefix=PREFIX, vocab_size=VOCABSIZE, ctl_symbols=CTLSYMBOLS):
     files = _get_text_file()
     # command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --control_symbols={ctl_symbols}'
-    # command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --unk_id=0 --bos_id=1 --eos_id=2 --pad_id=3 --unk_piece=<unk> --pad_piece=<pad> --bos_piece=[CLS] --eos_piece=[SEP] --control_symbols={ctl_symbols}'
+    command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --pad_id=0 --unk_id=1 --bos_id=2 --eos_id=3 --pad_piece=<pad> --unk_piece=<unk> --bos_piece=[CLS] --eos_piece=[SEP] --control_symbols={ctl_symbols} --user_defined_symbols=(,),\",-,.,–,£,€\')'
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --pad_id=0 --unk_id=1 --pad_piece=<pad> --unk_piece=<unk> --bos_id=-1 --eos_id=-1 --control_symbols=[CLS],[SEP],[MASK],<pad>'
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --pad_id=0 --unk_id=1 --pad_piece=<pad> --unk_piece=<unk> --bos_id=-1 --eos_id=-1 --control_symbols=[CLS],[SEP],[MASK],<pad>'
     # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --bos_id=-1 --eos_id=-1 --control_symbols={ctl_symbols}'
-    command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --control_symbols={ctl_symbols}'
+    # command = f'--input={files}  --vocab_size={vocab_size} --model_prefix={prefix} --model_type=bpe --control_symbols={ctl_symbols}'
     # command = f'--input={files} --model_prefix={prefix} --vocab_size={vocab_size} --control_symbols={ctl_symbols}'
     sp.SentencePieceTrainer.Train(command)
 
