@@ -17,7 +17,7 @@ CTLSYMBOLS = config['SENTENCEPIECE']['CTLSYMBOLS']
 
 
 def _get_text_file(text_dir=TEXTDIR):
-    file_list = glob.glob(f'{text_dir}/**/*.txt')
+    file_list = glob.glob(f'{text_dir}/**/all_sp.txt')
     files = ",".join(file_list)
     return files
 

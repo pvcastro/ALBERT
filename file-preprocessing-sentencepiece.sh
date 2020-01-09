@@ -36,7 +36,7 @@ done
 # Concat all text files in each text directory.
 for DIR in $( find ${TEXTDIR} -mindepth 1 -type d ); do
     echo "Merging ${DIR}"
-    for f in $( find ${DIR} -name "wiki_*" ); do cat $f >> ${DIR}/all.txt; done
+    for f in $( find ${DIR} -name "wiki_*" ); do cat $f >> ${DIR}/all_sp.txt; done
 done
 
 # Remove all.txt concatenated text files in each text directory.
