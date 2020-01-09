@@ -42,7 +42,7 @@ def download():
 def extract():
     subprocess.call(['python3',
                      os.path.join(CURDIR, 'wikiextractor', 'WikiExtractor.py'),
-                     FILEPATH, "-o={} --processes 4 --no_templates --filter_disambig_pages".format(EXTRACTDIR)])
+                     FILEPATH, "--processes 4 --no_templates --filter_disambig_pages -o={}".format(EXTRACTDIR)])
 
 
 def main():

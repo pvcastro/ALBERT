@@ -17,16 +17,16 @@ sentences = [sentence1, sentence2]
 
 print_from_tokenizer(title='Bert', path='bert-base-multilingual-cased', tokenizer_class=BertTokenizer,
                      sentences=sentences)
-print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_32k',
-                     tokenizer_class=AlbertTokenizer, sentences=sentences)
-print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_bpe_32k',
-                     tokenizer_class=AlbertTokenizer, sentences=sentences)
-print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/brwac_wiki_eduardo',
-                     tokenizer_class=AlbertTokenizer, sentences=sentences)
-print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_guillou_15k',
-                     tokenizer_class=AlbertTokenizer, sentences=sentences)
-print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_30k',
-                     tokenizer_class=AlbertTokenizer, sentences=sentences)
+# print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_32k',
+#                      tokenizer_class=AlbertTokenizer, sentences=sentences)
+# print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_bpe_32k',
+#                      tokenizer_class=AlbertTokenizer, sentences=sentences)
+# print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/brwac_wiki_eduardo',
+#                      tokenizer_class=AlbertTokenizer, sentences=sentences)
+# print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_guillou_15k',
+#                      tokenizer_class=AlbertTokenizer, sentences=sentences)
+# print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_30k',
+#                      tokenizer_class=AlbertTokenizer, sentences=sentences)
 print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_uncased_30k',
                      tokenizer_class=AlbertTokenizer, sentences=sentences)
 print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_albert_base_en',
