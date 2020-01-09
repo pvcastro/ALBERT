@@ -27,3 +27,9 @@ print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/mo
                      tokenizer_class=AlbertTokenizer, sentences=sentences)
 print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_30k',
                      tokenizer_class=AlbertTokenizer, sentences=sentences)
+print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_unigram_uncased_30k',
+                     tokenizer_class=AlbertTokenizer, sentences=sentences)
+print_from_tokenizer(title='Albert', path='/media/discoD/models/sentencepiece/model_albert_base_en',
+                     tokenizer_class=AlbertTokenizer, sentences=[
+        'Yucaipa owned Dominick\'s before selling the chain to Safeway in 1998 for $2.5 billion.',
+        'Yucaipa bought Dominick\'s in 1995 for $693 million and sold it to Safeway for $1.8 billion in 1998.'])
