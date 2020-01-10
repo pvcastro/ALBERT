@@ -24,12 +24,16 @@ done
 # Concat all text files in each text directory.
 #for DIR in $( find ${TEXTDIR} -mindepth 1 -type d )
 #do
+#    echo "Merging ${DIR}"
+#    for f in $( find ${DIR} -name "wiki_*" ); do cat $f >> ${DIR}/merged.txt; done
+#
 #    echo "Processing ${DIR}"
-#    for f in $( find ${DIR} -name "wiki_*" )
+#    for f in $( find ${DIR} -name "merged.txt" )
 #    do
 #        cat ${f} | \
 #        ./normalize-punctuation.perl -l pt | \
 #        ./tokenizer.perl -l pt >> ${DIR}/all.txt
+#        rm -rf ${f}
 #    done
 #done
 
@@ -45,4 +49,3 @@ done
 #    echo "Removing all.txt files from ${DIR}"
 #    rm -rf ${DIR}/all.txt
 #done
-
