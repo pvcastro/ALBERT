@@ -22,6 +22,7 @@ import os
 import time
 import modeling
 import optimization
+from pathlib import Path
 from six.moves import range
 import tensorflow.compat.v1 as tf
 from tensorflow.contrib import cluster_resolver as contrib_cluster_resolver
@@ -38,9 +39,12 @@ flags.DEFINE_string(
     "The config json file corresponding to the pre-trained ALBERT model. "
     "This specifies the model architecture.")
 
+# flags.DEFINE_string(
+#     "input_file", None,
+#     "Input TF example files (can be a glob or comma separated).")
 flags.DEFINE_string(
-    "input_file", None,
-    "Input TF example files (can be a glob or comma separated).")
+    "input_dir", None,
+    "Input directory in which the TF files are saved.")
 
 flags.DEFINE_string(
     "output_dir", None,
@@ -467,6 +471,12 @@ def _decode_record(record, name_to_features):
   return example
 
 
+def get_input_files(input_dir, max_seq_length):
+    input_dir = Path(input_dir)
+    input_dirs = [subfolder for subfolder in input_dir.iterdir()]
+    return ['{}/all-maxseq{}.tfrecord'.format(target, max_seq_length) for target in input_dirs]
+
+
 def main(_):
   tf.logging.set_verbosity(tf.logging.INFO)
 
@@ -478,8 +488,8 @@ def main(_):
   tf.gfile.MakeDirs(FLAGS.output_dir)
 
   input_files = []
-  for input_pattern in FLAGS.input_file.split(","):
-    input_files.extend(tf.gfile.Glob(input_pattern))
+  for input_pattern in get_input_files(FLAGS.input_dir, FLAGS.max_seq_length):
+      input_files.extend(tf.gfile.Glob(input_pattern))
 
   tf.logging.info("*** Input Files ***")
   for input_file in input_files:
